@@ -1,6 +1,7 @@
 from flask import Flask, request
 import json
 import requests
+import argparse
 
 
 app = Flask(__name__)
@@ -31,5 +32,15 @@ def index():
         return {}
 
 
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('port', default=8000, nargs='?', type=int,
+        help='Port number to listen for SNS notifications')
+    args = parser.parse_args()
+    return args
+
+
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port='8002')
+    args = parse_args()
+    print(args)
+    app.run(debug=True, host='0.0.0.0', port=args.port)
