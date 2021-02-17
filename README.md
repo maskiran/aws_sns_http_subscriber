@@ -1,2 +1,3 @@
 # aws_sns_http_subscriber
-SNS Notifcation HTTP Subscriber
+
+Basic HTTP susbscriber for AWS SNS
